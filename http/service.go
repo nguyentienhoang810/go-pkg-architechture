@@ -8,7 +8,7 @@ import (
 )
 
 type Service struct {
-	Root root.AppService
+	App root.AppService
 	router *mux.Router
 }
 
@@ -23,7 +23,7 @@ func (s *Service) MuxRouter() *mux.Router {
 
 func (s *Service) SetRouters() {
 	fmt.Println("set routers from http package")
-	s.Root.SetRouters()
+	s.App.SetRouters()
 }
 
 func (s *Service) ListenAndServe() {

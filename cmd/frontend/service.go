@@ -22,11 +22,10 @@ type service struct {
 func initServices() *service {
 
 	appsv.Httpsv = httpsv
-	appsv.Mysqlsv = myqslsv
-	httpsv.Root = appsv
-	httpsv.NewRouter()
-	httpsv.SetRouters()
+	appsv.MySQLsv = myqslsv
 	
+	httpsv.App = appsv
+
 	return &service {
 		App: appsv,
 		HTTP: httpsv,

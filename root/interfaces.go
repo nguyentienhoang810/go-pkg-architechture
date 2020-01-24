@@ -2,6 +2,9 @@ package root
 
 import (
 	"github.com/gorilla/mux"
+	"database/sql"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type AppService interface {
@@ -16,7 +19,7 @@ type HTTPService interface {
 }
 
 type MySQLService interface {
-	
+	SQL() *sql.DB
 }
 
 type UserService interface {

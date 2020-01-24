@@ -6,5 +6,5 @@ import (
 
 type Service struct {
 	Httpsv root.HTTPService
-	Mysqlsv root.MySQLService
+	MySQLsv root.MySQLService
 }

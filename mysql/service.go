@@ -5,10 +5,15 @@ import (
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
+	"log"
 )
 
 type Service struct {
-	DB *sql.DB
+	db *sql.DB
+}
+
+func (sv *Service) SQL() *sql.DB {
+	return sv.db
 }
 
 func (sv *Service) Setup() {
@@ -18,6 +23,13 @@ func (sv *Service) Setup() {
 	} else {
 		fmt.Println("connected to db")
 	}
-	sv.DB = db
+	sv.db = db
 	defer db.Close()
+
+	var name string
+	if err := db.QueryRow("SELECT name FROM users"); err != nil {
+		log.Fatal(err)
+	}
+	
+	fmt.Println(name)
 }
